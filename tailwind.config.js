@@ -8,7 +8,9 @@ module.exports = {
       colors:{
         'ochre':"#FAEDDD",
         'ochredark':"#D3C5B0",
-        "fadeochre":"#9A8261"
+        "fadeochre":"#9A8261",
+        "darkbrown":"#312E2A",
+        "fadebrown":"#7A756E",
       },
       fontFamily: {
         sans: ['Montserrat'],
