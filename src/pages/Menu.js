@@ -10,9 +10,10 @@ import wallet from '../assets/wallet.png'
 import logo from '../assets/logo.png'
 import myPiece from '../assets/myPiece.png'
 import { XMarkIcon } from '@heroicons/react/24/solid';
+import { useNavigate } from 'react-router-dom';
 
 function Menu() {
-
+    const navigate =useNavigate();
     const isTabletOrMobile = useMediaQuery({ query: '(max-width: 1224px)' })
 
 
@@ -24,7 +25,7 @@ function Menu() {
 
 
                 <img src={logo} alt="logo" />
-                <XMarkIcon className='h-8 mr-2 ' />
+                <XMarkIcon className='h-8  ' onClick={()=>navigate(-1)} />
 
 
             </nav>
