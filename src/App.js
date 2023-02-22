@@ -1,8 +1,8 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import './App.css';
-import Home from './pages/Home';
+import './App.css'; 
+import LinkedAccounts from './pages/linkedAccounts';
 import Login from './pages/Login';
-import MyAccount from './pages/MyAccount';
+import Menu from './pages/Menu';
 
 function App() {
   return (
@@ -11,7 +11,9 @@ function App() {
       <Router>
         <Routes>
         <Route path="/" element={<Login />} />
-        <Route path="/account" element={<MyAccount />} />
+        <Route path="/menu" element={<Menu />} />
+        <Route path="/linkedAccounts" element={<LinkedAccounts />} />
+
         </Routes>
       </Router>
     </>
