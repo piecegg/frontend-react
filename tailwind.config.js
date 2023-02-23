@@ -13,6 +13,7 @@ module.exports = {
         "fadebrown":"#7A756E",
       },
       fontFamily: {
+        Lora: ['Lora'],
         sans: ['Montserrat'],
         serif: ['Montserrat'],
         mono: ['Montserrat'],
