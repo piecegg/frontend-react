@@ -5,7 +5,11 @@ import CreatePiece from './pages/CreatePiece';
 import Listing from './pages/Listing';
 import Login from './pages/Login';
 import Menu from './pages/Menu';
+
 import Purchase from './pages/Purchase';
+
+import Pieces from './pages/Pieces';
+
 
 function App() {
   return (
@@ -16,6 +20,7 @@ function App() {
         <Route path="/" element={<Login />} />
         <Route path="/menu" element={<Menu />} />
         <Route path="/createPiece" element={<CreatePiece />} />
+        <Route path="/pieces" element={<Pieces />} />
         <Route path="/listing" element={<Listing />} />
         <Route path="/buy" element={<Buy />} />
         <Route path="/purchase" element={<Purchase/>} />
