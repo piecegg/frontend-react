@@ -11,6 +11,7 @@ module.exports = {
         "fadeochre":"#9A8261"
       },
       fontFamily: {
+        Lora: ['Lora'],
         sans: ['Montserrat'],
         serif: ['Montserrat'],
         mono: ['Montserrat'],
