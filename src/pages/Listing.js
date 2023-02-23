@@ -1,10 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import { useMediaQuery } from "react-responsive";
 import piece from "../assets/piece.png";
 import nft from "../assets/nft.png";
 import certified from "../assets/certified.png";
 function Listing() {
   const isTabletOrMobile = useMediaQuery({ query: "(max-width: 1224px)" });
+  const [salesEnded,setSalesEnded]=useState(false);
   return (
     <>
       {isTabletOrMobile && (
@@ -43,18 +44,24 @@ function Listing() {
               </p>
             </div>
           </div>
-
+          {!salesEnded &&
+            <div>
           <div className="flex justify-center mt-4">
             <button className=" w-fit mx-auto rounded-md bg-opacity-70 px-36 py-4 hover:bg-opacity-100 text-stone-200 bg-fadeochre">
               Collect ($1)
             </button>
           </div>
-
-          <div className="mt-3">
+           <div className="mt-3">
           <p className="ml-6 font-mono text-md text-darkbrown ">3hr 15 min left | 122 Collected</p>
           <div className=' mx-5 border-t-4 border-white'></div>
-          <div className=' mx-5 mt-1 border-t-4 w-28 rounded-md border-fadebrown'></div>
+          <div className=' mx-5 -mt-1 border-t-4 w-28 rounded-md border-fadebrown'></div>
           </div>
+        </div>}
+
+          {salesEnded && <div className="mt-3">
+          <p className="ml-6 font-mono text-md text-darkbrown ">Sale Ended | 122 Collected</p>
+          </div>}
+
         </div>
       )}
     </>
