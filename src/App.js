@@ -7,8 +7,9 @@ import Login from './pages/Login';
 import Menu from './pages/Menu';
 
 import Purchase from './pages/Purchase';
-
 import Pieces from './pages/Pieces';
+import Landing from './pages/Landing';
+
 
 
 function App() {
@@ -24,6 +25,7 @@ function App() {
         <Route path="/listing" element={<Listing />} />
         <Route path="/buy" element={<Buy />} />
         <Route path="/purchase" element={<Purchase/>} />
+        <Route path="/landing" element={<Landing/>} />
         </Routes>
       </Router>
     </>
