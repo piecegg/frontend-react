@@ -49,7 +49,7 @@ function Pieces() {
     const [authenticate, setAuthincate] = useState(false)
     const [userData, setUserData] = useState({})
     useEffect(() => {
-        fetch("http://127.0.0.1:4000/", {
+        fetch(process.env.REACT_APP_BACKEND_URL, { 
             method: "GET",
             credentials: "include",
             headers: {

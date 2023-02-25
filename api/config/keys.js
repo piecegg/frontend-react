@@ -21,7 +21,7 @@ const URL = {
   CALLBACK_URL: "http://127.0.0.1:4000/auth/twitter/redirect",
   FAILURE_REDIRECT: "http://127.0.0.1:4000/auth/login/failed",
   
-  CLIENT_HOME_PAGE_URL: "http://127.0.0.1:3000/pieces",
+  CLIENT_HOME_PAGE_URL: "http://127.0.0.1:3000/",
   CLIENT_LOGIN_PAGE_URL: "http://127.0.0.1:3000/",
 }
 const KEYS = {

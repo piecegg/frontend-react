@@ -40,6 +40,7 @@ router.get(
     successRedirect: keys.CLIENT_HOME_PAGE_URL,
     failureRedirect: keys.FAILURE_REDIRECT
   })
+
 );
 
 module.exports = router;

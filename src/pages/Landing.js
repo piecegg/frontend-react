@@ -22,7 +22,11 @@ function Landing() {
           <h1 className=" mt-12 text-4xl font-extrabold text-darkbrown font-mono">Turn Tweets into collectibles</h1>
           <p className="mt-10 text-xl font-mono text-darkbrown">Sell any Tweet in seconds.</p></div>
           <div className="flex justify-center mt-6">
-            <button className=" w-fit mx-auto rounded-md bg-opacity-70 px-32 py-4 hover:bg-opacity-100 text-stone-200 bg-fadeochre shadow-lg ease-out duration-150 transition-all hover:scale-105 ">
+            <button  onClick={()=> {
+              localStorage.setItem("fromPage","landing")
+              window.open(process.env.REACT_APP_TWITTER_AUTH_LOGIN_LINK, "_self")
+              }} 
+              className=" w-fit mx-auto rounded-md bg-opacity-70 px-32 py-4 hover:bg-opacity-100 text-stone-200 bg-fadeochre shadow-lg ease-out duration-150 transition-all hover:scale-105 ">
               Create a piece
             </button>
           </div>
@@ -72,7 +76,10 @@ function Landing() {
         <div>
           <h1 className="lg:text-center ml-5 mt-14 text-4xl font-extrabold text-darkbrown font-mono">Make digital moments real</h1>
           <div className="flex justify-center mt-6">
-            <button className=" w-fit mx-auto rounded-md bg-opacity-70 px-32 py-4 hover:bg-opacity-100 text-stone-200 bg-fadeochre shadow-lg ease-out duration-150 transition-all hover:scale-105 ">
+            <button  onClick={()=> {
+              localStorage.setItem("fromPage","landing")
+              window.open(process.env.REACT_APP_TWITTER_AUTH_LOGIN_LINK, "_self")
+              }} className=" w-fit mx-auto rounded-md bg-opacity-70 px-32 py-4 hover:bg-opacity-100 text-stone-200 bg-fadeochre shadow-lg ease-out duration-150 transition-all hover:scale-105 ">
               Create a piece
             </button>
           </div>
