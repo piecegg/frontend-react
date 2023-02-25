@@ -1,5 +1,5 @@
 
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { useMediaQuery } from 'react-responsive'
 
 import create from '../assets/create.png'
@@ -15,10 +15,37 @@ function Menu() {
     const navigate = useNavigate();
     const isTabletOrMobile = useMediaQuery({ query: '(max-width: 1224px)' })
 
+    const [authenticate, setAuthincate] = useState(false)
+    const [userData, setUserData] = useState({})
+    useEffect(() => {
+        fetch("http://127.0.0.1:4000/", {
+            method: "GET",
+            credentials: "include",
+            headers: {
+                Accept: "application/json",
+                "Content-Type": "application/json",
+                "Access-Control-Allow-Credentials": true
+            }
+        })
+            .then(response => {
+                if (response.status === 200) return response.json();
+                throw new Error("failed to authenticate user");
+            })
+            .then(responseJson => {
+                //console.log(responseJson.user)
+                setAuthincate(true)
+                setUserData(responseJson.user)
+
+            })
+            .catch(error => {
+                //navigate('/')
+
+            });
+    }, [])
 
     return (<>
 
-        {isTabletOrMobile && <>
+        {isTabletOrMobile &&  <>
 
             <nav className=" flex  flex-wrap items-center font-Montserrat justify-between  w-full py-4 md:py-0 px-5 lg:py-4 lg:px-20  ">
 
@@ -86,12 +113,12 @@ function Menu() {
 
 
                     <div className='w-full pt-0 pb-3 flex items-center text-[16px]  font-regular opacity-60'>
-                    <img src={twitter} className="h-4 mr-2"/>@johnnyuserman
+                    <img src={twitter} className="h-4 mr-2"/>{userData.screenName && "@"+userData.screenName}
                     </div>
 
 
                     <div className=" w-full  h-[6vh]  flex justify-center ">
-                        <button className="border border-[#312E2A] rounded w-full  mt-0  font-bold">
+                        <button onClick={()=> window.open("http://127.0.0.1:4000/auth/logout", "_self")} className="border border-[#312E2A] rounded w-full  mt-0  font-bold">
                             Log out
                         </button>
                     </div>

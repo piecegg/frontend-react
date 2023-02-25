@@ -1,11 +1,7 @@
 import React, { useState } from 'react';
 import { useMediaQuery } from 'react-responsive';
-import {ArrowLeftIcon} from "@heroicons/react/24/outline"
-import google from "../assets/google.png"
-import facebook from "../assets/facebook.png"
-import apple from "../assets/apple.png"
-import twitter from "../assets/twitter.png"
-import logo from "../assets/logo.png"
+import {ArrowLeftIcon} from "@heroicons/react/24/outline" 
+import twitter from "../assets/twitter.png" 
 function Login() {
     const [input, setInput]=useState("");
     const [magicLink,setMagicLink]=useState(false);
@@ -25,7 +21,7 @@ function Login() {
         
          
 
-          <div className=' flex cursor-pointer -mb-5 transition-all ease-out shadow-md mt-6 mx-auto gap-3 border-2 rounded-md border-slate-900 w-96 pl-24  py-4'>
+          <div onClick={()=>  window.open(process.env.REACT_APP_TWITTER_AUTH_LOGIN_LINK, "_self")} className=' flex cursor-pointer -mb-5 transition-all ease-out shadow-md mt-6 mx-auto gap-3 border-2 rounded-md border-slate-900 w-96 pl-24  py-4'>
           <img src={twitter} className="h-5 w-5 my-auto -ml-20"/>
           <p className=' font-mono font-semibold'>Sign in with Twitter</p>
           </div>
