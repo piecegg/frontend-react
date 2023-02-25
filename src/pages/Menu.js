@@ -9,7 +9,7 @@ import twitter from '../assets/twitter.png'
 import logo from '../assets/logo.png'
 import myPiece from '../assets/myPiece.png'
 import { XMarkIcon } from '@heroicons/react/24/solid';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, } from 'react-router-dom';
 
 function Menu() {
     const navigate = useNavigate();
@@ -18,7 +18,7 @@ function Menu() {
     const [authenticate, setAuthincate] = useState(false)
     const [userData, setUserData] = useState({})
     useEffect(() => {
-        fetch("http://127.0.0.1:4000/", {
+        fetch(process.env.REACT_APP_BACKEND_URL, {
             method: "GET",
             credentials: "include",
             headers: {
@@ -38,7 +38,7 @@ function Menu() {
 
             })
             .catch(error => {
-                //navigate('/')
+                navigate('/')
 
             });
     }, [])
