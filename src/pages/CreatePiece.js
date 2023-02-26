@@ -90,7 +90,7 @@ function CreatePiece() {
 
                 <div className="row flex  px-5 ">
                     <div className='w-1/2 pt-0 mt-7 pb-3 flex tracking-[1px] items-center text-[16px]  font-regular opacity-60'>
-                        <img src={twitter} className="h-4 mr-2 " />{userData.screenName && "@" + userData.screenName}
+                        <img src={twitter} className="h-4 mr-2 " />{userData.username && "@" + userData.username}
                     </div>
 
 

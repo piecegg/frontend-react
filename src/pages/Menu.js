@@ -32,7 +32,7 @@ function Menu() {
                 throw new Error("failed to authenticate user");
             })
             .then(responseJson => {
-                //console.log(responseJson.user)
+                console.log(responseJson.user)
                 setAuthincate(true)
                 setUserData(responseJson.user)
 
@@ -63,7 +63,7 @@ function Menu() {
                         <li
                             className="w-full  px-4  ">
 
-                            <div className='  grid-cols-4 border-b  py-4 border-[#D3C5B0] flex justify-between '>
+                            <div onClick={()=>navigate('/createPiece')} className=' cursor-pointer  grid-cols-4 border-b  py-4 border-[#D3C5B0] flex justify-between '>
 
                                 <div className='flex col-span-3 items-center text-[#312E2A] text-[16px] font-[400]' >
                                     <img src={create} className="h-12 mr-3 flex sm:h-9" alt="Flowbite Logo" />Create
@@ -77,7 +77,7 @@ function Menu() {
                         <li
                             className="w-full px-4">
 
-                            <div className='  grid-cols-4 border-b   py-4  border-[#D3C5B0] flex justify-between '>
+                            <div onClick={()=>navigate('/pieces')} className=' cursor-pointer grid-cols-4 border-b   py-4  border-[#D3C5B0] flex justify-between '>
 
                                 <div className='flex col-span-3 items-center text-[#312E2A] text-[16px] font-[400]'>
                                     <img src={myPiece} className="h-12 mr-4 sm:h-9" alt="Flowbite Logo" />My Pieces
@@ -92,7 +92,7 @@ function Menu() {
                         <li
                             className="w-full px-4">
 
-                            <div className='  grid-cols-4 border-b   py-4  border-[#D3C5B0] flex justify-between '>
+                            <div onClick={()=>navigate('/')} className=' cursor-pointer  grid-cols-4 border-b   py-4  border-[#D3C5B0] flex justify-between '>
 
                                 <div className='flex col-span-3 items-center text-[#312E2A] text-[16px] font-[400]'>
                                     <img src={Payments} className="h-12 mr-4 sm:h-9" alt="Flowbite Logo" />Payment
@@ -113,12 +113,12 @@ function Menu() {
 
 
                     <div className='w-full pt-0 pb-3 flex items-center text-[16px]  font-regular opacity-60'>
-                    <img src={twitter} className="h-4 mr-2"/>{userData.screenName && "@"+userData.screenName}
+                    <img src={twitter} className="h-4 mr-2"/>{userData.username && "@"+userData.username}
                     </div>
 
 
                     <div className=" w-full  h-[6vh]  flex justify-center ">
-                        <button onClick={()=> window.open("http://127.0.0.1:4000/auth/logout", "_self")} className="border border-[#312E2A] rounded w-full  mt-0  font-bold">
+                        <button onClick={()=> window.open(process.env.REACT_APP_LOGOUT_LINK, "_self")} className="border border-[#312E2A] rounded w-full  mt-0  font-bold">
                             Log out
                         </button>
                     </div>
