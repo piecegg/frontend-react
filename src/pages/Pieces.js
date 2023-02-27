@@ -46,6 +46,33 @@ function Pieces() {
     }
 
 
+    const [authenticate, setAuthincate] = useState(false)
+    const [userData, setUserData] = useState({})
+    useEffect(() => {
+        fetch(process.env.REACT_APP_BACKEND_URL, { 
+            method: "GET",
+            credentials: "include",
+            headers: {
+                Accept: "application/json",
+                "Content-Type": "application/json",
+                "Access-Control-Allow-Credentials": true
+            }
+        })
+            .then(response => {
+                if (response.status === 200) return response.json();
+                throw new Error("failed to authenticate user");
+            })
+            .then(responseJson => {
+
+                setAuthincate(true)
+                setUserData(responseJson.user)
+
+            })
+            .catch(error => {
+                navigate('/')
+
+            });
+    }, [])
     return (<>
 
 
@@ -105,7 +132,7 @@ function Pieces() {
                 <Slide direction="right" in={isOthers} mountOnEnter unmountOnExit>
                     <div hidden={!isOthers} className="row mt-3 h-auto w-full  px-5 ">
 
-                    <ul className="    ">
+                        <ul className="    ">
                             <li
                                 className="w-full  grid   flex border-[#D3C5B0] py-3 border-b    ">
 
@@ -124,7 +151,7 @@ function Pieces() {
                                 className="w-full  grid   flex border-[#D3C5B0] py-3 border-b    ">
 
                                 <div className=' leading-none row flex w-full font-Lora font-[400] text-[16px] '>
-                                Anyone who holds this on December 25th, 2024 will be airdropped a fun surprise.
+                                    Anyone who holds this on December 25th, 2024 will be airdropped a fun surprise.
 
                                 </div>
                                 <div className=' row flex w-full text-[14px] font-[200] mt-2 font-Montserrat justify-between flex '>
@@ -138,7 +165,7 @@ function Pieces() {
                                 className="w-full  grid   flex border-[#D3C5B0] py-3 border-b    ">
 
                                 <div className=' leading-none row flex w-full font-Lora font-[400] text-[16px] '>
-                                Should I name my next rocket “Spacey Spacerson?
+                                    Should I name my next rocket “Spacey Spacerson?
 
                                 </div>
                                 <div className=' row flex w-full text-[14px] font-[200] mt-2 font-Montserrat justify-between flex '>
