@@ -19,6 +19,21 @@ function Landing() {
       <div className="flex flex-col">
         <div className="mt-5 ml-5">
           <img className="h-7 w-20" src={piece} alt="piece" />
+
+          <h1 className=" mt-12 text-4xl font-extrabold text-darkbrown font-mono">
+            Turn Tweets into collectibles
+          </h1>
+          <p className="mt-10 text-xl font-mono text-darkbrown">
+            Sell any Tweet in seconds.
+          </p>
+        </div>
+        <div className="flex justify-center mt-6">
+          <button className=" w-fit mx-auto rounded-md bg-opacity-70 px-32 py-4 hover:bg-opacity-100 text-stone-200 bg-fadeochre shadow-lg ease-out duration-150 transition-all hover:scale-105 ">
+            Create a piece
+          </button>
+        </div>
+        <img className="mx-auto mt-14" src={flow} alt="flow" />
+
           <h1 className=" mt-12 text-4xl font-extrabold text-darkbrown font-mono">Turn Tweets into collectibles</h1>
           <p className="mt-10 text-xl font-mono text-darkbrown">Sell any Tweet in seconds.</p></div>
           <div className="flex justify-center mt-6">
@@ -38,11 +53,27 @@ function Landing() {
           <img className="mx-auto mt-5" src={collect} alt="collect" />
           </div>
 
+
         <div>
-          <h1 className=" mt-12 ml-4 lg:text-center text-4xl font-extrabold text-darkbrown font-mono">Own the moment</h1>
+          <h1 className="ml-4 lg:text-center mt-14 text-3xl font-extrabold text-darkbrown font-mono">
+            One dollar, zero friction
+          </h1>
+          <p className="mt-6 ml-5 text-xl font-mono text-darkbrown lg:text-center">
+            Each Piece is automatically listed as a certified open edition:$1
+            for 24hrs
+          </p>
+          <img className="mx-auto mt-5" src={collect} alt="collect" />
+        </div>
+
+        <div>
+          <h1 className=" mt-12 ml-4 lg:text-center text-4xl font-extrabold text-darkbrown font-mono">
+            Own the moment
+          </h1>
         </div>
         <div>
-          <p className="mt-6 ml-5 text-md font-bold font-mono text-darkbrown lg:text-center">Iconic moments & news</p>
+          <p className="mt-6 ml-5 text-md font-bold font-mono text-darkbrown lg:text-center">
+            Iconic moments & news
+          </p>
           <div className="flex gap-5 justify-center mt-5">
             <img className="rounded-lg" src={pic1} alt="pic1" />
             <img className="rounded-lg" src={pic2} alt="pic2" />
@@ -50,7 +81,9 @@ function Landing() {
         </div>
 
         <div>
-          <p className="mt-6 ml-5 text-md font-bold font-mono text-darkbrown lg:text-center">Fan engagement & presales</p>
+          <p className="mt-6 ml-5 text-md font-bold font-mono text-darkbrown lg:text-center">
+            Fan engagement & presales
+          </p>
           <div className="flex gap-5 justify-center mt-5">
             <img className="rounded-lg" src={pic3} alt="pic3" />
             <img className="rounded-lg" src={pic4} alt="pic4" />
@@ -58,7 +91,9 @@ function Landing() {
         </div>
 
         <div>
-          <p className="mt-6 ml-5 text-md font-bold font-mono text-darkbrown lg:text-center">Predictions</p>
+          <p className="mt-6 ml-5 text-md font-bold font-mono text-darkbrown lg:text-center">
+            Predictions
+          </p>
           <div className="flex gap-5 justify-center mt-5">
             <img className="rounded-lg" src={pic5} alt="pic5" />
             <img className="rounded-lg" src={pic6} alt="pic6" />
@@ -66,7 +101,9 @@ function Landing() {
         </div>
 
         <div>
-          <p className="mt-6 ml-5 text-md font-bold font-mono text-darkbrown lg:text-center">Written artforms</p>
+          <p className="mt-6 ml-5 text-md font-bold font-mono text-darkbrown lg:text-center">
+            Written artforms
+          </p>
           <div className="flex gap-5 justify-center mt-5">
             <img className="rounded-lg" src={pic7} alt="pic7" />
             <img className="rounded-lg" src={pic8} alt="pic8" />
@@ -74,7 +111,9 @@ function Landing() {
         </div>
 
         <div>
-          <h1 className="lg:text-center ml-5 mt-14 text-4xl font-extrabold text-darkbrown font-mono">Make digital moments real</h1>
+          <h1 className="lg:text-center ml-5 mt-14 text-4xl font-extrabold text-darkbrown font-mono">
+            Make digital moments real
+          </h1>
           <div className="flex justify-center mt-6">
             <button  onClick={()=> {
               localStorage.setItem("fromPage","landing")
@@ -88,7 +127,7 @@ function Landing() {
             <img src={company2} alt="stripe" />
           </div>
         </div>
-      </div>
+
     </>
   );
 }
