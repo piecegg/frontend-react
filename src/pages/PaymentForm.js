@@ -33,7 +33,7 @@ export default function PaymentForm() {
         if(!error){
             try {
                 const {id} = paymentMethod
-                const response = await axios.post("http://localhost:8000/payment", {
+                const response = await axios.post(process.env.REACT_APP_BACKEND_URL+"stripe/payment", {
                     amount: 10000,
                     id
                 })
@@ -45,32 +45,36 @@ export default function PaymentForm() {
 
             } catch (error) {
                 console.log("Error", error)
+                
             }
         }else {
             console.log(error.message)
+            setError(error.message)
         }
     }
     const [success, setSuccess] = useState(false)
+    const [error, setError] = useState("")
     const stripe = useStripe()
     const elements = useElements()
+
    return (
     <>
     {!success ? 
     <form onSubmit={handleSubmit}>
-        <fieldset className='FormGroup'>
+        <fieldset className='FormGroup mx-3'>
             <div>
-                <CardNumberElement className=' max-w-sm  rounded-md ml-4 mx-auto border-2 bg-white px-2 py-3 ' options={CARD_OPTIONS} />
+                <CardNumberElement className=' max-w rounded-md border-2 bg-white px-2 py-3 ' options={CARD_OPTIONS} />
             </div>
         </fieldset>
-        <div className='flex justify-center'>
-        <fieldset >
+        <div >
+        <fieldset className='row mx-3 flex justify-between '>
             
-                <CardExpiryElement className='w-48 rounded-md border-2 bg-white px-2 py-3 '  options={CARD_OPTIONS} />
-            
+                <CardExpiryElement className='w-1/2  rounded-md border-2 bg-white  py-3 '  options={CARD_OPTIONS} />
+                <CardCvcElement className='w-1/2 rounded-md  border-2 bg-white  py-3 ' options={CARD_OPTIONS} />
         </fieldset>
         <fieldset>
            
-                <CardCvcElement className='w-48 rounded-md border-2 bg-white px-2 py-3 ' options={CARD_OPTIONS} />
+              
             
         </fieldset>
         </div>
@@ -78,6 +82,7 @@ export default function PaymentForm() {
         <button className=" w-96 mx-auto rounded-md bg-opacity-70 px-22 py-4 hover:bg-opacity-100 text-stone-200 bg-fadeochre shadow-lg ease-out duration-150 transition-all hover:scale-105 ">
           COMPLETE PURCHASE
         </button>
+        {error  && error}
       </div>
     </form>:<div className="payment-success">
         <h2>Payment successful</h2>
