@@ -33,7 +33,7 @@ function Buy() {
       })
       .catch((error) => {
         console.log(error);
-        // navigate("/");
+         navigate("/");
       });
   }, []);
   return (
