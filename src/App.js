@@ -18,14 +18,14 @@ function App() {
 
       <Router>
         <Routes>
-        <Route path="/" element={<Login />} />
+        <Route path="/login" element={<Login />} />
         <Route path="/menu" element={<Menu />} />
         <Route path="/createPiece" element={<CreatePiece />} />
         <Route path="/pieces" element={<Pieces />} />
         <Route path="/listing" element={<Listing />} />
         <Route path="/buy" element={<Buy />} />
         <Route path="/purchase" element={<Purchase/>} />
-        <Route path="/landing" element={<Landing/>} />
+        <Route path="/" element={<Landing/>} />
         </Routes>
       </Router>
     </>
