@@ -38,6 +38,7 @@ function Buy() {
       .catch((error) => {
         console.log(error);
         navigate("/");
+ 
       });
   }, []);
   return (

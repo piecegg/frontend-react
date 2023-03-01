@@ -29,35 +29,34 @@ const CARD_OPTIONS = {
 };
 
 export default function PaymentForm() {
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    const { error, paymentMethod } = await stripe.createPaymentMethod({
-      type: "card",
-      card: elements.getElement(
-        CardCvcElement,
-        CardExpiryElement,
-        CardNumberElement
-      ),
-    });
+ 
+    const handleSubmit = async (e) =>{
+        e.preventDefault()
+        const {error, paymentMethod} = await stripe.createPaymentMethod({
+            type: "card",
+            card: elements.getElement(CardCvcElement, CardExpiryElement, CardNumberElement)
+        })
 
-    if (!error) {
-      try {
-        const { id } = paymentMethod;
-        const response = await axios.post("http://localhost:8000/payment", {
-          amount: 1,
-          id,
-        });
-
+        if(!error){
+            try {
+                const {id} = paymentMethod
+                const response = await axios.post(process.env.REACT_APP_BACKEND_URL+"stripe/payment", {
+                    amount: 10000,
+                    id
+                })
+ 
         if (response.data.success) {
           console.log("Successful Payment");
           setSuccess(true);
-        }
-      } catch (error) {
-        console.log("Error", error);
-      }
-    } else {
-      console.log(error.message);
-    }
+ 
+            } catch (error) {
+                console.log("Error", error)
+                
+            }
+        }else {
+            console.log(error.message)
+            setError(error.message)
+ }
   };
   const [success, setSuccess] = useState(false);
   const stripe = useStripe();
@@ -109,4 +108,5 @@ export default function PaymentForm() {
       )}
     </>
   );
+
 }
