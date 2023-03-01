@@ -3,9 +3,11 @@ import { useMediaQuery } from "react-responsive";
 import piece from "../assets/piece.png";
 import nft from "../assets/nft.png";
 import certified from "../assets/certified.png";
+import { useNavigate } from "react-router-dom";
 function Listing() {
   const isTabletOrMobile = useMediaQuery({ query: "(max-width: 1224px)" });
   const [salesEnded,setSalesEnded]=useState(false);
+  const navigate=useNavigate();
   return (
     <>
       {isTabletOrMobile && (
@@ -13,11 +15,8 @@ function Listing() {
           <div className=" flex justify-between w-full px-6 py-8">
             <img src={piece} alt="logo" className="h-6 w-20" />
             <div className=" flex gap-5">
-              <a>
-                <p className=" font-mono text-lg font-semibold">Create</p>
-              </a>
-              <a>
-                <p className="font-mono text-lg font-semibold">Log in</p>
+              <a className=" cursor-pointer hover:scale-105 ease-out transition-all" onClick={()=>navigate("/")}>
+                <p className=" font-opan text-lg font-semibold">Log in</p>
               </a>
             </div>
           </div>
@@ -26,14 +25,12 @@ function Listing() {
             <img className=" min-w-max" src={nft} alt="nft" />
           </div>
 
-          <div className=" mt-7 ml-6">
-            <p className="font-mono text-3xl font-bold text-darkbrown">
-              #32958
-            </p>
-            <div className="flex">
-              <p className=" font-mono text-md text-darkbrown ">
-                by 0x23...74 on 1/1/2023
-              </p>
+          <div className=" mt-7 ml-8 mb-7 flex justify-between">
+          <p className="font-mono text-md font-bold text-darkbrown">
+            Piece #32958
+         </p>
+            <div className="flex pr-8">
+          
               <img
                 src={certified}
                 alt="certified"
