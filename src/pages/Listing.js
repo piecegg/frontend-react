@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useMediaQuery } from "react-responsive";
 import piece from "../assets/piece.png";
-import nft from "../assets/nft.png";
+import nft from '../assets/mock_piece.png'
 import certified from "../assets/certified.png";
 import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
