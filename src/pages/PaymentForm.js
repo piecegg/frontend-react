@@ -1,28 +1,35 @@
-import React from 'react'
-import { useState } from 'react'
-import { CardNumberElement, CardCvcElement, CardExpiryElement, useStripe, useElements} from '@stripe/react-stripe-js';
-import axios from 'axios'
+import React, { useEffect } from "react";
+import { useState } from "react";
+import {
+  CardNumberElement,
+  CardCvcElement,
+  CardExpiryElement,
+  useStripe,
+  useElements,
+} from "@stripe/react-stripe-js";
+import axios from "axios";
 const CARD_OPTIONS = {
-	iconStyle: "solid",
-	style: {
-		base: {
-			iconColor: "#c4f0ff",
-			color: "gray",
-			fontWeight: 500,
-			fontFamily: "Roboto, Open Sans, Segoe UI, sans-serif",
-			fontSize: "16px",
-			fontSmoothing: "antialiased",
-			":-webkit-autofill": { color: "black" },
-			"::placeholder": { color: "lightgray" }
-		},
-		invalid: {
-			iconColor: "#ffc7ee",
-			color: "black"
-		}
-	}
-}
+  iconStyle: "solid",
+  style: {
+    base: {
+      iconColor: "#c4f0ff",
+      color: "gray",
+      fontWeight: 500,
+      fontFamily: "Roboto, Open Sans, Segoe UI, sans-serif",
+      fontSize: "16px",
+      fontSmoothing: "antialiased",
+      ":-webkit-autofill": { color: "black" },
+      "::placeholder": { color: "lightgray" },
+    },
+    invalid: {
+      iconColor: "#ffc7ee",
+      color: "black",
+    },
+  },
+};
 
 export default function PaymentForm() {
+
     const handleSubmit = async (e) =>{
         e.preventDefault()
         const {error, paymentMethod} = await stripe.createPaymentMethod({
@@ -38,20 +45,29 @@ export default function PaymentForm() {
                     id
                 })
 
-                if(response.data.success){
-                    console.log("Successful Payment")
-                    setSuccess(true)
-                }
 
-            } catch (error) {
-                console.log("Error", error)
-                
-            }
-        }else {
-            console.log(error.message)
-            setError(error.message)
+    if (!error) {
+      try {
+        const { id } = paymentMethod;
+        const response = await axios.post("http://localhost:8000/payment", {
+          amount: 1,
+          id,
+        });
+
+
+        if (response.data.success) {
+          console.log("Successful Payment");
+          setSuccess(true);
+
         }
+      } catch (error) {
+        console.log("Error", error);
+      }
+    } else {
+      console.log(error.message);
     }
+
+
     const [success, setSuccess] = useState(false)
     const [error, setError] = useState("")
     const stripe = useStripe()
@@ -85,10 +101,7 @@ export default function PaymentForm() {
         {error  && error}
       </div>
     </form>:<div className="payment-success">
-        <h2>Payment successful</h2>
-        <h3 className='Thank-you'>Thank you for your patronage</h3>
+        <h2 className="font-opensans font-bold ml-4">Payment successful</h2>
+          <h3 className="font-opensans font-bold ml-4 mt-3">Thank you for your payment</h3>
     </div>
-}
-</>
-       )
 }

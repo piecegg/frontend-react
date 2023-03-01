@@ -10,6 +10,8 @@ import logo from '../assets/logo.png'
 import myPiece from '../assets/myPiece.png'
 import { XMarkIcon } from '@heroicons/react/24/solid';
 import { useNavigate, } from 'react-router-dom';
+import { motion } from "framer-motion";
+import { fadeInDown, fadeInUp, staggerContainer } from "./variants";
 
 function Menu() {
     const navigate = useNavigate();
@@ -43,22 +45,22 @@ function Menu() {
             });
     }, [])
 
-    return (<>
+    return (<motion.div>
 
-        {isTabletOrMobile &&  <>
+      
 
-            <nav className=" flex  flex-wrap items-center font-Montserrat justify-between  w-full py-4 md:py-0 px-5 lg:py-4 lg:px-20  ">
+            <motion.nav variants={staggerContainer} initial="initial" animate="animate" className=" flex  flex-wrap items-center font-Montserrat justify-between  w-full py-4 md:py-0 px-5 lg:py-4 lg:px-20  ">
 
 
                 <img src={logo} alt="logo" />
                 <XMarkIcon className='h-8  ' onClick={() => navigate(-1)} />
 
 
-            </nav>
+            </motion.nav>
 
             <div className="  text-[#312E2A]  font-Montserrat">
 
-                <div className="flex justify-center">
+                <motion.div variants={fadeInUp} className="flex justify-center">
                     <ul className="w-screen   p-1  ">
                         <li
                             className="w-full  px-4  ">
@@ -108,8 +110,8 @@ function Menu() {
                          
 
                     </ul>
-                </div>
-                <footer className=" inset-x-0 bottom-0 fixed m-2  px-5 ">
+                </motion.div>
+                <motion.footer variants={fadeInUp} className=" inset-x-0 bottom-0 fixed m-2  px-5 ">
 
 
                     <div className='w-full pt-0 pb-3 flex items-center text-[16px]  font-regular opacity-60'>
@@ -117,25 +119,25 @@ function Menu() {
                     </div>
 
 
-                    <div className=" w-full  h-[6vh]  flex justify-center ">
-                        <button onClick={()=> window.open(process.env.REACT_APP_LOGOUT_LINK, "_self")} className="border border-[#312E2A] rounded w-full  mt-0  font-bold">
+                    <div className=" lg:w-fit lg:mx-auto  w-full  h-[6vh]  flex justify-center ">
+                        <button onClick={()=> window.open(process.env.REACT_APP_LOGOUT_LINK, "_self")} className="border border-[#312E2A] rounded w-full  mt-0  font-bold lg:px-10">
                             Log out
                         </button>
                     </div>
-                </footer>
+                </motion.footer>
 
 
             </div>
 
-        </>
+        </motion.div>
 
-        }
-
-
+        
 
 
 
-    </>);
+
+
+    );
 }
 
 export default Menu;

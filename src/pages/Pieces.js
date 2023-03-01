@@ -76,7 +76,7 @@ function Pieces() {
     return (<>
 
 
-        {isTabletOrMobile && <>
+ 
             <AlertBox popupParam={popupParam} setPopupParam={setPopupParam} />
 
             <nav className=" flex flex-wrap items-center font-Montserrat justify-between  w-full py-4 md:py-0 px-5 lg:py-4 lg:px-20  ">
@@ -187,13 +187,13 @@ function Pieces() {
 
         </>
 
-        }
+        
 
 
 
 
 
-    </>);
+    );
 }
 
 export default Pieces;
