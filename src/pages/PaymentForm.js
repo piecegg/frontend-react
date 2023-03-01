@@ -70,14 +70,16 @@ export default function PaymentForm() {
       {!success ? (
         <form onSubmit={handleSubmit}>
        
-            <fieldset className="FormGroup">
-              <div>
-                <CardNumberElement
-                  className=" max-w-sm rounded-md ml-4 mx-auto border-2 bg-white px-2 py-3"
-                  options={CARD_OPTIONS}
-                />
-              </div>
-            </fieldset>
+           <div className="flex justify-center">
+           <fieldset>
+           
+             <CardNumberElement
+               className="w-96 rounded-md  border-2 bg-white px-2 py-3"
+               options={CARD_OPTIONS}
+             />
+           
+         </fieldset>
+         </div>
           
           <div className="flex justify-center">
             <fieldset>
@@ -101,8 +103,8 @@ export default function PaymentForm() {
         </form>
       ) : (
         <div className="payment-success">
-          <h2>Payment successful</h2>
-          <h3 className="Thank-you">Thank you for your patronage</h3>
+          <h2 className="font-opensans font-bold ml-4">Payment successful</h2>
+          <h3 className="font-opensans font-bold ml-4 mt-3">Thank you for your payment</h3>
         </div>
       )}
     </>
