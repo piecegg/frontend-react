@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useMediaQuery } from "react-responsive";
-import nft from "../assets/nft.png";
+import nft from "../assets/mock_piece.png";
 import apple2 from "../assets/apple2.png";
 import { ArrowLeftIcon } from "@heroicons/react/24/outline";
 import { useNavigate } from "react-router-dom";
