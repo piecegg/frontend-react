@@ -34,14 +34,16 @@ function Buy() {
       .then((responseJson) => {
         setAuthincate(true);
         setUserData(responseJson.user);
+        const listingId = localStorage.getItem("listingId");
+        console.log(listingId)
+        fetchPieceDetails(listingId);
       })
       .catch((error) => {
         console.log(error);
 
         navigate("/login");
       });
-    const listingId = localStorage.getItem("listingId");
-    fetchPieceDetails(listingId);
+   
   }, []);
 
   const [listingData, setListingData] = useState({});

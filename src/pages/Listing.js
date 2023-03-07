@@ -101,20 +101,17 @@ function Listing() {
         </div>
 
         {isTabletOrMobile && (
-          <motion.div variants={fadeInUp} className=" flex justify-center mt-6">
-            <img className="h-56 w-56" src={listingData.image} alt="nft" />
+          <motion.div variants={fadeInUp} className=" flex justify-center mt-6 p-5 overflow-hidden">
+            <img className="object-none h-[40vh] w-full  " src={listingData.image} alt="nft" />
           </motion.div>
         )}
 
 
         {isDesktopOrLaptop && (
           <div className="flex gap-24 justify-center">
-            <motion.div
-              variants={fadeInUp}
-              className=" flex justify-center mt-6"
-            >
-              <img className="h-96 w-96" src={listingData.image} alt="nft" />
-            </motion.div>
+          <motion.div variants={fadeInUp} className=" flex justify-center mt-6 p-5 overflow-hidden">
+            <img className="object-none h-[40vh] w-full  " src={listingData.image} alt="nft" />
+          </motion.div>
             <div>
             <motion.div
           variants={fadeInUp}
@@ -200,7 +197,13 @@ function Listing() {
               className="flex justify-center mt-4"
             >
               <button
-                onClick={() => navigate("/buy")}
+                onClick={() => {
+                
+                  localStorage.setItem("fromPage", "buy");
+                  localStorage.setItem("listingId", listingId);
+                  
+              navigate("/buy")
+            }}
                 className=" hover:scale-105 transition-all ease-out font-opensans w-fit mx-auto rounded-md bg-opacity-70 px-36 py-4 hover:bg-opacity-100 text-stone-200 bg-fadeochre"
               >
                 Collect ($1)
