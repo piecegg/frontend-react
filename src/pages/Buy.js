@@ -39,13 +39,13 @@ function Buy() {
         console.log(error);
 
         navigate("/");
-
       });
   }, []);
   return (
     <>
       <motion.div variants={staggerContainer} initial="initial" animate="animate">
         <ArrowLeftIcon className="h-8 w-8 mt-5 ml-4" />
+
         <motion.div variants={fadeInUp} className="flex justify-center mt-5">
           <img
             className="h-44 w-44 hover:scale-105 hover:shadow-lg"
@@ -53,20 +53,23 @@ function Buy() {
             alt="nft"
           />
         </motion.div>
+
         <motion.div variants={fadeInUp} className="text-center mt-5">
           <p className="font-opensans text-xl font-bold text-darkbrown">
             #32958
           </p>
           <p className="font-opensans text-lg text-darkbrown">$1</p>
         </motion.div>
-        <motion.div variants={fadeInUp} className="flex justify-center mt-7">
-          <button className=" hover:scale-105 transition-all ease-out font-opensans w-96 rounded-md px-4 py-4 bg-opacity-90 text-stone-200 bg-black ">
-            <img src={apple2} className="h-6 w-5 -mb-5 ml-32" />
-            <p className="text-white font-opensans">Pay</p>
-          </button>
-        </motion.div>
 
-        <motion.div variants={fadeInUp} className="mt-10 ml-3 mr-3 border-t-2 border-ochredark">
+        <motion.div variants={fadeInUp} className="flex justify-center mt-7">
+        <button className=" hover:scale-105 transition-all ease-out font-opensans w-96 rounded-md px-4 py-4 bg-opacity-90 text-stone-200 bg-black ">
+          <img src={apple2} className="h-6 w-5 -mb-5 ml-32" />
+          <p className="text-white font-opensans">Pay</p>
+        </button>
+        </motion.div>
+      
+
+       <motion.div variants={fadeInUp} className="mt-10 ml-3 mr-3 border-t-2 border-ochredark">
           <div className="h-8 w-fit font-normal mx-auto px-3 text-ochredark bg-ochre -mt-4 ">
             <p className="font-opensans">Or Pay with card</p>
           </div>
@@ -83,6 +86,7 @@ function Buy() {
             </Elements>
           </div>
         </motion.div>
+
       </motion.div>
       )
     </>
