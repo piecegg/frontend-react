@@ -43,6 +43,9 @@ function Purchase() {
         //navigate("/");
       });
   };
+  const isDesktopOrLaptop = useMediaQuery({
+    query: "(min-width: 1224px)",
+  });
   return (
     <>
       <motion.div
@@ -74,14 +77,19 @@ function Purchase() {
             </p>
           </motion.div>
 
-        <motion.div variants={fadeInUp} className="flex justify-center mt-12">
+        {isTabletOrMobile&&<motion.div variants={fadeInUp} className="flex justify-center mt-12">
           <button
             onClick={() => navigate("/pieces")}
             className=" hover:scale-105 ease-out transition-all  hover:shadow-lg font-opensans w-fit mx-auto rounded-md px-32 py-4 hover:bg-opacity-100 text-stone-200 bg-fadeochre"
           >
             View my pieces
           </button>
-        </motion.div>
+        </motion.div>}
+        {isDesktopOrLaptop && <motion.div variants={fadeInUp} className="flex justify-center mt-12">
+        <button onClick={() => navigate("/pieces")} className=" hover:scale-105 ease-out transition-all  hover:shadow-lg font-opensans w-fit mx-auto rounded-md px-14 py-3 hover:bg-opacity-100 text-stone-200 bg-fadeochre">
+          View my pieces
+        </button>
+      </motion.div>}
       </motion.div>
     </>
   );

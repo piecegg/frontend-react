@@ -33,7 +33,7 @@ function Login() {
         animate="animate"
       >
         <div className="mt-5 ml-3">
-          <motion.div variants={fadeInDown}><ArrowLeftIcon className="h-8 w-8 mt-5"  /></motion.div>
+          <motion.div variants={fadeInDown}><ArrowLeftIcon onClick={()=>{navigate("/")}} className="h-8 w-8 mt-5"  /></motion.div>
           <motion.div variants={fadeInUp}>
             <h1 className="lg:text-center drop-shadow-lg mt-72 text-left font-extrabold font-opensans text-4xl text-darkbrown">
               Log in to purchase

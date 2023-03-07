@@ -1,22 +1,18 @@
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import './App.css'; 
-import Buy from './pages/Buy';
-import CreatePiece from './pages/CreatePiece';
-import Listing from './pages/Listing';
-import Login from './pages/Login';
-import Menu from './pages/Menu';
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import "./App.css";
+import Buy from "./pages/Buy";
+import CreatePiece from "./pages/CreatePiece";
+import Listing from "./pages/Listing";
+import Login from "./pages/Login";
+import Menu from "./pages/Menu";
 
-import Purchase from './pages/Purchase';
-import Pieces from './pages/Pieces';
-import Landing from './pages/Landing';
-
-
-
+import Purchase from "./pages/Purchase";
+import Pieces from "./pages/Pieces";
+import Landing from "./pages/Landing";
 
 function App() {
   return (
     <>
-
       <Router>
         <Routes>
         <Route path="/" element={<Landing />} />
@@ -30,7 +26,6 @@ function App() {
         </Routes>
       </Router>
     </>
-
   );
 }
 

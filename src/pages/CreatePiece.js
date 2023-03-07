@@ -12,6 +12,9 @@ import { fadeInDown, fadeInUp, staggerContainer } from "./variants";
 
 function CreatePiece() {
   const isTabletOrMobile = useMediaQuery({ query: "(max-width: 1224px)" });
+  const isDesktopOrLaptop = useMediaQuery({
+    query: "(min-width: 1224px)",
+  });
   const navigate = useNavigate();
   const [input, setInput] = useState("");
 
@@ -81,7 +84,7 @@ function CreatePiece() {
 
           <motion.nav variants={fadeInUp} className=" flex flex-wrap items-center font-opensans justify-between  w-full py-4 md:py-0 px-5 lg:py-4 lg:px-20  ">
             <div className=" flex items-center justify-between font-[500] w-full">
-              <img src={logo} alt="logo" />
+              <img src={logo} alt="logo" className="-ml-10"/>
 
               <Bars3Icon
                 className="h-8 ml-3 "
@@ -97,34 +100,56 @@ function CreatePiece() {
                 {userData.username && "@" + userData.username}
               </div>
             </motion.div>
-            <motion.div variants={fadeInUp} className="row flex  px-5 ">
+
+           {isTabletOrMobile&& <motion.div variants={fadeInUp} className="row flex  px-5 ">
               <div className="">
                 <h1 className=" mt-3 text-4xl font-extrabold text-darkbrown font-opensans">
                   Create a Piece
                 </h1>
               </div>
-            </motion.div>
+            </motion.div>}
+            {isDesktopOrLaptop&& <motion.div variants={fadeInUp} className="">
+              <div className="flex justify-center">
+                <h1 className=" mt-3 text-4xl font-extrabold text-darkbrown font-opensans">
+                  Create a Piece
+                </h1>
+              </div>
+            </motion.div>}
 
-            <motion.div variants={fadeInUp} className="row flex  px-5 ">
+            {isTabletOrMobile && <motion.div variants={fadeInUp} className="row flex  px-5 ">
               <div className="w-full  tracking-[1px] justify-start items-center flex font-opensans  pb-3  pt-5  text-[16px] font-[300]">
                 Reply “@CreateAPiece” to any of your text-only Tweets, and we'll
                 create a Pieace that anyone can collect for $1 for 24hrs.
               </div>
-            </motion.div>
+            </motion.div>}
+            {isDesktopOrLaptop && <motion.div variants={fadeInUp} className="w-full flex justify-center  px-5 ">
+              <div className="w-full  tracking-[1px]  font-opensans  pb-3  pt-5  text-[16px] font-[300] ">
+                Reply “@CreateAPiece” to any of your text-only Tweets, and we'll create a Pieace that anyone can collect for $1 for 24hrs.
+              </div>
+            </motion.div>}
 
             <motion.div variants={fadeInUp} className="row px-5 items-center flex ">
               <img className="mx-auto mt-10" src={flow} alt="flow" />
             </motion.div>
-            <motion.footer variants={fadeInUp} className=" inset-x-0 bottom-0 fixed   px-5 ">
+            {isTabletOrMobile&&<motion.footer variants={fadeInUp} className=" inset-x-0 bottom-0 fixed   px-5 ">
               <div className=" w-full my-4  p-3 tracking-[1px] flex justify-center font-opensans bg-[#E7D8C4] items-center text-[12px] font-[300] ">
                 <img className="mx-auto h-10 mr-3" src={info} alt="flow" />
                 Only text tweets are supported at this time. We do not yet
                 support threads or images.
               </div>
+            </motion.footer>}
+            {isDesktopOrLaptop &&
+              <motion.footer variants={fadeInUp} className=" ml-10 mt-6 inset-x-0 bottom-0 flex justify-center   px-5 ">
+              <div className=" w-fit  my-4  p-3 tracking-[1px] flex justify-center font-opensans bg-[#E7D8C4] items-center text-[12px] font-[300] ">
+                <img className="mx-auto h-10 mr-3" src={info} alt="flow" />
+                Only text tweets are supported at this time. We do not yet
+                support threads or images.
+              </div>
             </motion.footer>
+            }
           </motion.div>
         </motion.div>
-      )
+      
     </>
   );
 }
