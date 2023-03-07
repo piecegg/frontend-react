@@ -102,7 +102,7 @@ function Listing() {
 
         {isTabletOrMobile && (
           <motion.div variants={fadeInUp} className=" flex justify-center mt-6">
-            <img className="h-56 w-56" src={nft} alt="nft" />
+            <img className="h-56 w-56" src={listingData.image} alt="nft" />
           </motion.div>
         )}
 
@@ -113,7 +113,7 @@ function Listing() {
               variants={fadeInUp}
               className=" flex justify-center mt-6"
             >
-              <img className="h-96 w-96" src={nft} alt="nft" />
+              <img className="h-96 w-96" src={listingData.image} alt="nft" />
             </motion.div>
             <div>
             <motion.div
