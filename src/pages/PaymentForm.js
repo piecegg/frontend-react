@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import {
     CardNumberElement,
     CardCvcElement,
@@ -28,8 +29,9 @@ const CARD_OPTIONS = {
     },
 };
 
-export default function PaymentForm() {
+export default function PaymentForm({amount,listingId}) {
 
+    const navigate = useNavigate()
     const handleSubmit = async (e) => {
         e.preventDefault()
         const { error, paymentMethod } = await stripe.createPaymentMethod({
@@ -41,7 +43,8 @@ export default function PaymentForm() {
             try {
                 const { id } = paymentMethod
                 const response = await axios.post(process.env.REACT_APP_BACKEND_URL + "stripe/payment", {
-                    amount: 10000,
+                    amount: amount,
+                    listingId:listingId,
                     id
                 })
 
@@ -49,7 +52,11 @@ export default function PaymentForm() {
                 if (response.data.success) {
                     console.log("Successful Payment");
                     setSuccess(true);
-
+                    setTimeout(()=>{
+                        localStorage.setItem("fromPage","")
+                        localStorage.setItem("listingId","")
+                        navigate('/purchase',{ state: { listingId: listingId } })
+                    },2000)
                 }
 
             } catch (error) {
@@ -67,6 +74,7 @@ export default function PaymentForm() {
 
     return (
         <>
+
             {!success ?
                 <form onSubmit={handleSubmit}>
                     <fieldset className='FormGroup mx-3'>

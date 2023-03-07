@@ -150,7 +150,7 @@ function Landing() {
         <div className="flex justify-center mt-6">
           <button
             onClick={() => {
-               localStorage.setItem("fromPage", "landing");
+               //localStorage.setItem("fromPage", "landing");
                window.open(
                  process.env.REACT_APP_TWITTER_AUTH_LOGIN_LINK,
                  "_self"
