@@ -67,14 +67,14 @@ function Pieces() {
       .then((responseJson) => {
         setAuthincate(true);
         setUserData(responseJson.user);
-        fetchPieceDetails(responseJson.user.username);
+        fetchPieceDetails(responseJson.user.twitterId);
       })
       .catch((error) => {
         navigate("/login");
       });
   }, []);
 
-  const fetchPieceDetails = async (username) => {
+  const fetchPieceDetails = async (twitterId) => {
     fetch(process.env.REACT_APP_BACKEND_URL + "piece/pieceByUser", {
       method: "POST",
       headers: {
@@ -82,7 +82,7 @@ function Pieces() {
         "Content-Type": "application/json",
         "Access-Control-Allow-Credentials": true,
       },
-      body: JSON.stringify({ authorUserName: username }),
+      body: JSON.stringify({ twitterId: twitterId }),
     })
       .then((response) => response.json())
       .then((responseJson) => {
@@ -146,8 +146,8 @@ function Pieces() {
                       {obj.pieceText}
                     </div>
                     <div className=" row flex w-full text-[14px] font-[200] mt-2 font-Montserrat justify-between flex ">
-                      <div className=""> @{obj.authorUserName} • 1/1/2023 </div>
-                      <div className=""> 1/443 </div>
+                      <div className=""> @{obj.authorName} • {obj.createdAt} </div>
+                      <div className=""> {obj.totalPiecesCollected}</div>
                     </div>
                   </li>
                

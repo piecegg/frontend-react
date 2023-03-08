@@ -53,11 +53,12 @@ function Listing() {
           setListingData({
             id: responseJson.id,
             pieceText: responseJson.pieceText,
-            authorUserName: responseJson.authorUserName,
+            authorName: responseJson.authorName,
             createdAt: formattedDate,
             isCollected: responseJson.isCollected,
             amount: responseJson.amount,
-            image:responseJson.image
+            image:responseJson.image,
+            totalPiecesCollected:responseJson.totalPiecesCollected
           });
           
         }
@@ -143,7 +144,7 @@ function Listing() {
                 }}
                 className=" hover:scale-105 transition-all ease-out font-opensans w-fit mx-auto rounded-md bg-opacity-70 py-3 w-full hover:bg-opacity-100 text-stone-200 bg-fadeochre"
               >
-                      Collect ($1)
+                      Collect (${listingData.amount})
                     </button>
                   </motion.div>
                   <motion.div
@@ -151,7 +152,7 @@ function Listing() {
                     className="mt-5 lg:text-center -ml-12"
                   >
                     <p className="-ml-3 font-opensans text-md text-darkbrown ">
-                      3hr 15 min left | 122 Collected
+                      3hr 15 min left | {listingData.totalPiecesCollected} Collected
                     </p>
                     <div className="lg:mx-auto  mx-5 border-t-4 w-60 rounded-md border-white"></div>
                     <div className=" ml-20 mx-5 -mt-1 border-t-4 w-28 rounded-md border-fadebrown"></div>
@@ -162,7 +163,7 @@ function Listing() {
               {salesEnded && (
                 <motion.div variants={fadeInUp} className="mt-3">
                   <p className="lg:mx-auto ml-6 font-opensans text-md text-darkbrown ">
-                    Sale Ended | 122 Collected
+                    Sale Ended | {listingData.totalPiecesCollected} Collected
                   </p>
                 </motion.div>
               )}
@@ -176,7 +177,7 @@ function Listing() {
             className=" mt-7 ml-8 mb-7 flex justify-between lg:justify-center lg:gap-24"
           >
             <p className="font-opensans text-md font-bold text-darkbrown">
-              Piece #32958
+              Piece #{listingData.id} 
             </p>
             <div className="flex pr-8">
               <img
@@ -206,12 +207,12 @@ function Listing() {
             }}
                 className=" hover:scale-105 transition-all ease-out font-opensans w-fit mx-auto rounded-md bg-opacity-70 px-36 py-4 hover:bg-opacity-100 text-stone-200 bg-fadeochre"
               >
-                Collect ($1)
+                Collect (${listingData.amount})
               </button>
             </motion.div>
             <motion.div variants={fadeInUp} className="mt-5 lg:text-center">
               <p className="ml-6 font-opensans text-md text-darkbrown ">
-                3hr 15 min left | 122 Collected
+                3hr 15 min left | {listingData.totalPiecesCollected} Collected
               </p>
               <div className="lg:mx-auto  mx-5 border-t-4 w-60 rounded-md border-white"></div>
               <div className=" lg:mx-auto lg:pr-4 mx-5 -mt-1 border-t-4 w-28 rounded-md border-fadebrown"></div>
@@ -222,7 +223,7 @@ function Listing() {
         {salesEnded && isTabletOrMobile && (
           <motion.div variants={fadeInUp} className="mt-3">
             <p className="lg:mx-auto ml-6 font-opensans text-md text-darkbrown ">
-              Sale Ended | 122 Collected
+              Sale Ended | {listingData.totalPiecesCollected} Collected
             </p>
           </motion.div>
         )}

@@ -29,7 +29,7 @@ const CARD_OPTIONS = {
     },
 };
 
-export default function PaymentForm({amount,listingId}) {
+export default function PaymentForm({amount,listingId,twitterId}) {
 
     const navigate = useNavigate()
     const handleSubmit = async (e) => {
@@ -45,6 +45,7 @@ export default function PaymentForm({amount,listingId}) {
                 const response = await axios.post(process.env.REACT_APP_BACKEND_URL + "stripe/payment", {
                     amount: amount,
                     listingId:listingId,
+                    twitterId:twitterId,
                     id
                 })
 

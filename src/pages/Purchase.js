@@ -31,7 +31,7 @@ function Purchase() {
           setListingData({
             id: responseJson.id,
             pieceText: responseJson.pieceText,
-            authorUserName: responseJson.authorUserName,
+            authorName: responseJson.authorName,
             isCollected: responseJson.isCollected,
             amount: responseJson.amount,
             image: responseJson.image,
