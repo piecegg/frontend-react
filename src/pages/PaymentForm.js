@@ -9,6 +9,7 @@ import {
     useElements,
 } from "@stripe/react-stripe-js";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 const CARD_OPTIONS = {
     iconStyle: "solid",
     style: {
@@ -29,9 +30,11 @@ const CARD_OPTIONS = {
     },
 };
 
+
 export default function PaymentForm({amount,listingId,twitterId}) {
 
     const navigate = useNavigate()
+
     const handleSubmit = async (e) => {
         e.preventDefault()
         const { error, paymentMethod } = await stripe.createPaymentMethod({
@@ -101,7 +104,10 @@ export default function PaymentForm({amount,listingId,twitterId}) {
                         </button>
                         {error && error}
                     </div>
-                </form> : <div className="payment-success">
+                </form> : 
+                //NFT minting logic 
+                
+                <div className="payment-success">
                     <h2 className="font-opensans font-bold ml-4">Payment successful</h2>
                     <h3 className="font-opensans font-bold ml-4 mt-3">Thank you for your payment</h3>
                 </div>
